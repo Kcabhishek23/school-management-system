@@ -1,0 +1,82 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Manage Staff</h1>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <div class="form-card">
+        <h2>Add New Staff</h2>
+        <form method="POST" action="/staff">
+
+            <label>Name:</label>
+            <input type="text" name="name" required>
+
+            <label>Age:</label>
+            <input type="number" name="age" required>
+
+            <label>Gender:</label>
+            <input type="text" name="gender" required>
+
+            <label>Subject:</label>
+            <input type="text" name="subject" required>
+
+            <label>Position:</label>
+            <input type="text" name="position" required>
+
+            <label>Qualification:</label>
+            <input type="text" name="qualification" required>
+
+            <label>Email:</label>
+            <input type="email" name="email" required>
+
+            <label>Phone:</label>
+            <input type="text" name="phone" required>
+
+            <label>Address:</label>
+            <input type="text" name="address" required>
+
+            <label>Joining Date:</label>
+            <input type="date" name="joining_date" required>
+
+            <label>Salary:</label>
+            <input type="number" name="salary" step="0.01" required>
+
+            <button type="submit">Add Staff</button>
+
+        </form>
+    </div>
+
+    <div class="recent-section">
+        <h2>All Staff</h2>
+
+        {% if staffs %}
+            <table class="data-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Subject</th>
+                    <th>Phone</th>
+                    <th>Salary</th>
+                </tr>
+                {% for st in staffs %}
+                <tr>
+                    <td>{{ st.staff_id }}</td>
+                    <td>{{ st.name }}</td>
+                    <td>{{ st.position }}</td>
+                    <td>{{ st.subject }}</td>
+                    <td>{{ st.phone }}</td>
+                    <td>{{ st.salary }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No staff added yet.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

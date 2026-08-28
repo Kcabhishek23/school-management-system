@@ -1,0 +1,69 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    <h1>Fee Management</h1>
+
+    {% if message %}
+        <p class="message">{{ message }}</p>
+    {% endif %}
+
+    <div class="form-card">
+        <h2>Create Fee Record</h2>
+        <form method="POST" action="/fees">
+            <label>Student ID:</label>
+            <input type="text" name="student_id" required>
+
+            <label>Total Fee:</label>
+            <input type="number" name="total_fee" step="0.01" required>
+
+            <button type="submit">Create Record</button>
+        </form>
+    </div>
+
+    <div class="recent-section">
+        <h2>All Fee Records</h2>
+
+        {% if fee_students %}
+            <table class="data-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Total Fee</th>
+                    <th>Paid</th>
+                    <th>Due</th>
+                    <th>Status</th>
+                    <th>Pay</th>
+                </tr>
+                {% for fs in fee_students %}
+                <tr>
+                    <td>{{ fs.student_id }}</td>
+                    <td>{{ fs.name }}</td>
+                    <td>{{ fs.total_fee }}</td>
+                    <td>{{ fs.paid_fee }}</td>
+                    <td>{{ fs.due_fee }}</td>
+                    <td>
+                        {% if fs.paid_fee == 0 %}
+                            Not Paid
+                        {% elif fs.paid_fee < fs.total_fee %}
+                            Partially Paid
+                        {% else %}
+                            Fully Paid
+                        {% endif %}
+                    </td>
+                    <td>
+                        <form method="POST" action="/pay-fee" class="inline-form">
+                            <input type="hidden" name="student_id" value="{{ fs.student_id }}">
+                            <input type="number" name="amount" step="0.01" placeholder="Amount" required>
+                            <button type="submit">Pay</button>
+                        </form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No fee records yet.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

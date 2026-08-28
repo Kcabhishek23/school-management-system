@@ -1,0 +1,95 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <div class="welcome-banner">
+    <div class="banner-text">
+        <h1>Welcome, Admin!</h1>
+        <p>Here's what's happening in your school today.</p>
+    </div>
+    </div>
+
+    <div class="info-cards">
+
+    <div class="info-card card-purple">
+        <div class="info-text">
+            <p class="info-number">{{ total_students }}</p>
+            <p class="info-label">Total Students</p>
+        </div>
+        <div class="info-icon icon-purple">
+            <img src="{{ url_for('static', filename='img/student1.png') }}" alt="Students">
+        </div>
+    </div>
+
+    <div class="info-card card-blue">
+        <div class="info-text">
+            <p class="info-number">{{ total_staff }}</p>
+            <p class="info-label">Total Staff</p>
+        </div>
+        <div class="info-icon icon-blue">
+            <img src="{{ url_for('static', filename='img/teacher1.png') }}" alt="Staff">
+        </div>
+    </div>
+
+    <div class="info-card card-yellow">
+        <div class="info-text">
+            <p class="info-number">{{ total_fee_collected }}</p>
+            <p class="info-label">Fee Collected</p>
+        </div>
+        <div class="info-icon icon-yellow">
+            <img src="{{ url_for('static', filename='img/collection1.png') }}" alt="Fee Collected">
+        </div>
+    </div>
+
+    </div>
+
+    <div class="recent-section">
+        <h2>Recently Joined Students</h2>
+
+        {% if recent_students %}
+            <table class="data-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Class</th>
+                    <th>Department</th>
+                </tr>
+                {% for s in recent_students %}
+                <tr>
+                    <td>{{ s.student_id }}</td>
+                    <td>{{ s.name }}</td>
+                    <td>{{ s.student_class }}</td>
+                    <td>{{ s.department }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No students added yet.</p>
+        {% endif %}
+    </div>
+
+    <div class="recent-section">
+        <h2>Recently Joined Staff</h2>
+
+        {% if recent_staff %}
+            <table class="data-table">
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Position</th>
+                    <th>Subject</th>
+                </tr>
+                {% for st in recent_staff %}
+                <tr>
+                    <td>{{ st.staff_id }}</td>
+                    <td>{{ st.name }}</td>
+                    <td>{{ st.position }}</td>
+                    <td>{{ st.subject }}</td>
+                </tr>
+                {% endfor %}
+            </table>
+        {% else %}
+            <p>No staff added yet.</p>
+        {% endif %}
+    </div>
+
+{% endblock %}

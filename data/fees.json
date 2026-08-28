@@ -1,0 +1,44 @@
+[
+    {
+        "student_id": "00681",
+        "name": "Antti Kokala",
+        "age": 24,
+        "email_id": "aamk05@student.hamk.fi",
+        "department": "ICT Robotics",
+        "student_class": "3rd Year",
+        "phone_no": "0449841234",
+        "address": "Riihimaki",
+        "guardian_name": "Lindu Kokala",
+        "guardian_phone": "0667598123",
+        "total_fee": 9800,
+        "paid_fee": 5000
+    },
+    {
+        "student_id": "00682",
+        "name": "Alexi Rawat",
+        "age": 26,
+        "email_id": "amk078@student.hamk.fi",
+        "department": "ICT Robotics",
+        "student_class": "3rd Year",
+        "phone_no": "0449842345",
+        "address": "Hameenlinna",
+        "guardian_name": "Sita Rawat",
+        "guardian_phone": "0667598234",
+        "total_fee": 9800,
+        "paid_fee": 9800
+    },
+    {
+        "student_id": "00683",
+        "name": "Maria Silva",
+        "age": 22,
+        "email_id": "msilva@student.hamk.fi",
+        "department": "Business",
+        "student_class": "2nd Year",
+        "phone_no": "0449843456",
+        "address": "Helsinki",
+        "guardian_name": "Carlos Silva",
+        "guardian_phone": "0667598345",
+        "total_fee": 8500,
+        "paid_fee": 0
+    }
+]

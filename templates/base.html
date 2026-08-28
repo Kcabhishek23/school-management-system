@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>School Management System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="layout">
+
+        <aside class="sidebar">
+
+            <div class="logo-section">
+               <img src="{{ url_for('static', filename='img/school-logo.png') }}" alt="School Logo" class="logo-img">
+                <div>
+                    <h2 class="logo-text">Deepak School</h2>
+                    <p class="logo-subtext">Management System</p>
+                </div>
+            </div>
+
+            <nav class="nav-links">
+
+                <a href="/" class="nav-item {% if active_page == 'dashboard' %}active{% endif %}">
+                    <img src="{{ url_for('static', filename='img/dashboard-icon.png') }}" alt="dashboard icon" class="nav-icon">
+                    Dashboard
+                </a>
+
+                <a href="/students" class="nav-item {% if active_page == 'students' %}active{% endif %}">
+                    <img src="{{ url_for('static', filename='img/student-icon.png') }}" alt="Student icon" class="nav-icon">
+                    Students
+                </a>
+
+                <a href="/staff" class="nav-item {% if active_page == 'staff' %}active{% endif %}">
+                    <img src="{{ url_for('static', filename='img/staff-icon.png') }}" alt="Staff icon" class="nav-icon">
+                    Staff
+                </a>
+
+                <a href="/fees" class="nav-item {% if active_page == 'fees' %}active{% endif %}">
+                    <img src="{{ url_for('static', filename='img/fee-icon.png') }}" alt="Fee icon" class="nav-icon">
+                    Fees
+                </a>
+
+                <a href="/salary" class="nav-item {% if active_page == 'salary' %}active{% endif %}">
+                    <img src="{{ url_for('static', filename='img/salary-icon.png') }}" alt="Salary icon" class="nav-icon">
+                    Salary
+                </a>
+
+            </nav>
+
+            <a href="/logout" class="nav-item logout-link">
+                <img src="{{ url_for('static', filename='img/logout-icon.png') }}" alt="Logout icon" class="nav-icon">
+                Logout
+            </a>
+
+        </aside>
+
+        <main class="content">
+            {% block content %}
+            {% endblock %}
+        </main>
+
+    </div>
+
+</body>
+</html>
