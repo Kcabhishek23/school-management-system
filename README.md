@@ -1,11 +1,11 @@
-# 🏫 School Management System
+# School Management System
 
 A full-stack school management dashboard built with **Python (Flask)**, **HTML/CSS**, and **JSON-based data storage**. Manages students, staff, fee collection, and salary payments through a clean, custom-designed web interface.
 
 
 ![Dashboard Screenshot](static/img/demo_dashboard.png)
 
-## ✨ Features
+## Features
 
 - **Student Management** — add students with full profile details (contact info, guardian info, class, department), auto-generated unique student IDs, duplicate-name protection
 - **Staff Management** — add staff with role, subject, qualification, and salary details, auto-generated unique staff IDs
@@ -14,14 +14,14 @@ A full-stack school management dashboard built with **Python (Flask)**, **HTML/C
 - **Dashboard Overview** — live stats (total students, total staff, total fees collected), recently joined students/staff tables, custom banner
 - **Persistent storage** — all data saved to and loaded from JSON files, so records survive server restarts
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 - **Backend:** Python, Flask
 - **Frontend:** HTML, CSS, Jinja2 templating
 - **Data storage:** JSON files
 - **Architecture:** Object-oriented design with class inheritance (`Fee` and `Staff` structured around a shared `Student`-style pattern)
 
-## 📁 Project Structure
+## Project Structure
 
 ```
 school-management-system/
@@ -46,7 +46,7 @@ school-management-system/
     └── img/
 ```
 
-## 🚀 Getting Started
+## Getting Started
 
 ### Prerequisites
 
@@ -81,7 +81,7 @@ school-management-system/
    http://127.0.0.1:5000
    ```
 
-## 🧠 What I Learned
+## What I Learned
 
 This project was built as a hands-on way to practice core Python and web development concepts:
 
@@ -92,7 +92,7 @@ This project was built as a hands-on way to practice core Python and web develop
 - Debugging a real architectural bug — a subtle issue where creating `Fee` objects silently consumed `Student` ID numbers through inherited `__init__` calls, fixed at the root by making ID generation optional
 - Basic responsive UI design with Flexbox and CSS Grid
 
-## 🔮 Possible Future Improvements
+## Possible Future Improvements
 
 - Edit and delete functionality for students, staff, and fee records
 - Search functionality across all sections
@@ -100,10 +100,10 @@ This project was built as a hands-on way to practice core Python and web develop
 - User authentication and role-based access (admin/teacher/student logins)
 - Attendance and grades tracking modules
 
-## 📄 License
+## License
 
 This project is open source and available for learning purposes.
 
 ---
 
-Built as part of a self-directed learning journey into Python and web development. 🚀
+Built as part of a self-directed learning journey into Python and web development.
